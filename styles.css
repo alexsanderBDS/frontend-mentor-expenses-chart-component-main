@@ -60,4 +60,17 @@ body {
   font-size: var(--18px);
   font-family: "DM Sans", sans-serif;
   font-weight: 400;
+  background-color: #000;
+}
+
+.container {
+  background-color: var(--color-nc);
+  min-width: calc(375rem / 16);
+  max-width: calc(375rem / 16);
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

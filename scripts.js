@@ -8,6 +8,7 @@ new Chart(ctx, {
     labels: jsonFile.map(({ day }) => day),
     datasets: [
       {
+        // title: 'Spending - Last 7 days',
         label: "# of Votes",
         data: jsonFile.map(({ amount }) => amount),
         borderWidth: 1,
