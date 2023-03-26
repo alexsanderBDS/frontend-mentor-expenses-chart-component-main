@@ -1,6 +1,8 @@
 .attribution {
   font-size: 11px;
   text-align: center;
+
+  margin-top: var(--16ws);
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
@@ -56,6 +58,8 @@ html {
   --color-nvpo: hsl(33, 100%, 98%);
 }
 
+/* GENERAL */
+
 body {
   font-size: var(--18px);
   font-family: "DM Sans", sans-serif;
@@ -73,4 +77,122 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.color-ndb {
+  color: hsl(25, 47%, 15%);
+}
+
+/* GENERAL */
+
+.header {
+  background-color: var(--color-psr);
+  color: var(--color-nvpo);
+  width: 90%;
+  border-radius: var(--12px);
+
+  display: flex;
+  justify-content: space-between;
+  padding: var(--24ws);
+
+  margin-bottom: var(--16ws);
+}
+
+.logo {
+  width: calc(60rem / 16);
+}
+
+.header-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--8ws);
+}
+
+.info:first-child {
+  font-size: var(--14px);
+  opacity: 0.9;
+}
+
+.info:last-child {
+  font-weight: 700;
+  font-size: var(--24px);
+}
+
+.header-heading {
+  display: flex;
+  align-items: center;
+  padding: var(--24ws) var(--12ws) !important;
+
+  border-radius: var(--12px) var(--12px) 0 0;
+}
+
+.heading {
+  font-size: var(--24px);
+  background-color: var(--color-nvpo);
+}
+
+.chart,
+.footer,
+.header-heading {
+  background-color: var(--color-nvpo);
+  width: 90%;
+  padding: 0 var(--12ws);
+}
+
+.chart {
+  padding: var(--12ws);
+  position: relative;
+}
+
+.chart::after {
+  content: "";
+  background-color: var(--color-nc);
+  height: 2px;
+  width: 92%;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: var(--24ws) 0;
+  border-radius: 0 0 var(--12px) var(--12px);
+}
+
+.item:first-child {
+  grid-column: 1/-1;
+  padding: 0 var(--12ws);
+  color: var(--color-nmb);
+  font-size: var(--12px);
+}
+
+.item:nth-child(2) {
+  grid-row: span 2;
+  align-self: center;
+  font-weight: 700;
+  font-size: var(--24px);
+  padding: 0 var(--12ws);
+}
+
+.item:nth-child(3) {
+  font-size: var(--14px);
+  font-weight: 700;
+  justify-self: end;
+  padding: 0 var(--12ws);
+}
+
+.item:last-child {
+  padding: 0 var(--12ws);
+  font-size: var(--12px);
+  color: var(--color-nmb);
+  justify-self: end;
+}
+
+@media (min-width: calc(377em / 16)) {
+  body {
+    background-color: var(--color-nc);
+  }
 }

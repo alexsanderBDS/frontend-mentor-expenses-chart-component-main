@@ -1,6 +1,19 @@
 import jsonFile from "./data.json" assert { type: "json" };
 
 const ctx = document.getElementById("myChart");
+const { amount } = jsonFile.reduce((x, y) => (x.amount > y.amount ? x : y));
+const objColors = {
+  blue: "hsl(186, 34%, 60%)",
+  orange: "hsl(10, 79%, 65%)",
+  brown: "hsl(28, 10%, 53%)",
+};
+
+const colors = jsonFile.map((item) => {
+  if (item.amount === amount) {
+    return objColors.blue;
+  }
+  return objColors.orange;
+});
 
 new Chart(ctx, {
   type: "bar",
@@ -8,17 +21,43 @@ new Chart(ctx, {
     labels: jsonFile.map(({ day }) => day),
     datasets: [
       {
-        // title: 'Spending - Last 7 days',
-        label: "# of Votes",
         data: jsonFile.map(({ amount }) => amount),
-        borderWidth: 1,
+        backgroundColor: colors,
+        borderRadius: 4,
       },
     ],
   },
   options: {
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
     scales: {
       y: {
-        beginAtZero: true,
+        grid: {
+          display: false,
+        },
+        border: {
+          display: false,
+        },
+        ticks: {
+          display: false,
+          showLabelBackdrop: false,
+        },
+      },
+      x: {
+        grid: {
+          drawTicks: false,
+          display: false,
+        },
+        border: {
+          display: false,
+        },
+        ticks: {
+          color: objColors.brown,
+          padding: 10,
+        },
       },
     },
     animations: {
